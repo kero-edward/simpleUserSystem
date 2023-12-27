@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kero Edward">
+    <meta name="keywords" content="login, register, user, account">
+    <meta name="description" content="login system to validate your account if registered and valid.">
+    <link rel="shortcut icon" href="./assets/images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <title>Simple User System</title>
+</head>
+
+<body>
+    <section class="mainSection p-5 h-100">
+
+        <div class="loginSection p-5 d-flex flex-column justify-content-center align-items-center text-white">
+
+            <h1 class="text-capitalize">simple user system</h1>
+            <h2 class="text-capitalize text-white text-center mt-3">create new account!</h2>
+
+            <div id="successMsg" class="alert alert-success mt-3 w-100 text-center d-none" role="alert">
+                The Account created successfully!
+            </div>
+
+            <div class="loginForm mt-5 text-center">
+                <input id="nameInput" class="form-control mb-4" type="text" placeholder="Name"
+                    aria-label="Account name input" required>
+
+                <div id="nameError" class="alert alert-danger mb-4 d-none" role="alert"></div>
+
+                <input id="emailInput" class="form-control mb-4" type="email" placeholder="Email"
+                    aria-label="Account email input" required>
+
+                <div id="emailError" class="alert alert-danger mb-4 d-none" role="alert"></div>
+
+                <input id="passwordInput" class="form-control mb-4" type="password" placeholder="Password"
+                    aria-label="Account password input" required>
+
+                <div id="passwordError" class="alert alert-danger mb-4 d-none" role="alert"></div>
+
+                <button id="buttonNameChange" type="button" class="btn text-capitalize rounded-pill mt-2"
+                    onclick="signUp()">sign up</button>
+
+                <h3 class="text-capitalize mt-4">
+                    already have an account?
+                    <a href="./index.html" class="text-decoration-none">sign in</a>
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

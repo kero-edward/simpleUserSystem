@@ -1,0 +1,188 @@
+:root {
+    --titleFontFamily: 'Lobster Two', sans-serif;
+    --bodyFontFamily: 'Ubuntu Mono', monospace;
+    --mainColor: #000836;
+    --backgroundColor: #012059;
+
+}
+
+#homePage {
+    background-image: url('../images/homeBg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    min-height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#homePage .navbar,
+#homePage .navbar a {
+    font-family: var(--bodyFontFamily);
+    font-size: 1.7vw;
+}
+
+#homePage .navbar {
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    background-color: transparent !important;
+    color: white !important;
+}
+
+#homePage .welcomePhrase {
+    font-family: var(--bodyFontFamily);
+    font-size: 4vw;
+}
+
+.mainSection {
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    min-height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSection {
+    position: relative;
+    z-index: 2;
+    width: 40%;
+    margin: auto;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    background-color: var(--backgroundColor);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    overflow: hidden;
+}
+
+.loginSection::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-image: linear-gradient(to right, #01559b, #0193a2);
+}
+
+.loginSection::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-image: linear-gradient(to right, #01559b, #0193a2);
+}
+
+.loginSection h1 {
+    font-family: var(--titleFontFamily);
+    font-size: 3.5vw;
+    text-align: center;
+    position: relative;
+}
+
+.loginSection h1::after {
+    content: "";
+    background-image: linear-gradient(to right, #01559b, #0193a2);
+    height: 3px;
+    width: 50%;
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.loginSection h2 {
+    font-family: var(--bodyFontFamily);
+    font-size: 1.7vw;
+}
+
+.loginForm {
+    font-family: var(--bodyFontFamily);
+    width: 100%;
+}
+
+.loginForm input,
+.loginForm input:focus {
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    border: none;
+}
+
+.loginForm button,
+.loginForm button:hover,
+.loginForm button:active {
+    font-size: 1.2vw;
+    font-weight: 700;
+    background-color: #748cab !important;
+    color: var(--backgroundColor) !important;
+    width: 40%;
+}
+
+.loginSection h3 {
+    font-family: var(--bodyFontFamily);
+    font-size: 1.3vw;
+}
+
+.loginSection h3 a {
+    color: #fff;
+}
+
+.loginSection h3 a:hover {
+    text-decoration: underline !important;
+}
+
+@media screen and (max-width: 900px) {
+    .loginSection {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .loginSection h1 {
+        font-size: 5vw;
+    }
+
+    .loginSection h2,
+    #homePage .navbar,
+    #homePage .navbar a {
+        font-size: 3vw;
+    }
+
+    .loginForm button {
+        font-size: 2.5vw;
+    }
+
+    .loginSection h3 {
+        font-size: 2.6vw;
+    }
+
+    #homePage .welcomePhrase {
+        font-size: 5.5vw;
+    }
+
+    #homePage .navbar,
+    #homePage .navbar a {
+        font-size: 3.2vw;
+    }
+}
