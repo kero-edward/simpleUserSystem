@@ -9,14 +9,26 @@ const passwordError = document.getElementById('passwordError');
 const successMsg = document.getElementById('successMsg');
 var allUsers = [];
 var userData = {};
+var pathName = '/simpleUserSystem/'
 
-if (location.href === hrefFilePath + "/home.html" && localStorage.getItem('userSession') === null) {
-    location.href = hrefFilePath + "/index.html";
-} else if (localStorage.getItem('userSession')) {
-    if (location.href === hrefFilePath + "/index.html" || location.href === hrefFilePath + "/signUp.html") {
-        location.href = hrefFilePath + "/home.html";
+if (location.hostname.length == 0) {
+    if (location.href === hrefFilePath + "/home.html" && localStorage.getItem('userSession') === null) {
+        location.href = hrefFilePath + "/index.html";
+    } else if (localStorage.getItem('userSession')) {
+        if (location.href === hrefFilePath + "/index.html" || location.href === hrefFilePath + "/signUp.html") {
+            location.href = hrefFilePath + "/home.html";
+        }
+        getUserData();
     }
-    getUserData();
+} else {
+    if (location.href === location.hostname + pathName + "home.html" && localStorage.getItem('userSession') === null) {
+        location.href = pathName + "/";
+    } else if (localStorage.getItem('userSession')) {
+        if (location.href === pathName + "/" || location.href === pathName + "/signUp.html") {
+            location.href = pathName + "/home.html";
+        }
+        getUserData();
+    }
 }
 
 if (localStorage.getItem('users') !== null) {
@@ -60,7 +72,11 @@ function signIn() {
                     setTimeout(function () {
                         successMsg.classList.add('d-none');
                         localStorage.setItem('userSession', JSON.stringify(allUsers[i]));
-                        location.href = hrefFilePath + "/home.html";
+                        if (location.hostname.length == 0) {
+                            location.href = hrefFilePath + "/home.html";
+                        } else {
+                            location.href = pathName + "/home.html";
+                        }
                     }, 2000);
                     break;
                 }
@@ -104,14 +120,22 @@ function signUp() {
         successMsg.classList.remove('d-none');
         setTimeout(function () {
             successMsg.classList.add('d-none');
-            location.href = hrefFilePath + "/index.html";
+            if (location.hostname.length == 0) {
+                location.href = hrefFilePath + "/index.html";
+            } else {
+                location.href = pathName + "/";
+            }
         }, 2000);
     }
 }
 
 function logOut() {
     localStorage.removeItem('userSession');
-    location.href = hrefFilePath + "/index.html";
+    if (location.hostname.length == 0) {
+        location.href = hrefFilePath + "/index.html";
+    } else {
+        location.href = pathName + "/";
+    }
 }
 
 function nameValidation() {
