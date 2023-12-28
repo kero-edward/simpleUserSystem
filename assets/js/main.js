@@ -60,7 +60,7 @@ function signIn() {
         passwordError.classList.add('d-none');
     }
 
-    if (emailValidation().test(emailInput.value) && passwordValidation().test(passwordInput.value && localStorage.getItem('users'))) {
+    if (emailValidation().test(emailInput.value) && passwordValidation().test(passwordInput.value) && localStorage.getItem('users')) {
         for (var i = 0; i < allUsers.length; i++) {
             if (allUsers[i].email !== emailInput.value) {
                 emailError.classList.remove('d-none');
