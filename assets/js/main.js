@@ -11,7 +11,7 @@ var allUsers = [];
 var userData = {};
 var pathName = '/simpleUserSystem'
 
-if (location.hostname.length == 0) {
+if (location.origin.length == 0) {
     if (location.href === hrefFilePath + "/home.html" && localStorage.getItem('userSession') === null) {
         location.href = hrefFilePath + "/index.html";
     } else if (localStorage.getItem('userSession')) {
@@ -21,11 +21,11 @@ if (location.hostname.length == 0) {
         getUserData();
     }
 } else {
-    if (location.href === location.hostname + pathName + "/home.html" && localStorage.getItem('userSession') === null) {
-        location.href = location.hostname + pathName + "/";
+    if (location.href === location.origin + pathName + "/home.html" && localStorage.getItem('userSession') === null) {
+        location.href = location.origin + pathName + "/";
     } else if (localStorage.getItem('userSession')) {
-        if (location.href === location.hostname + pathName + "/" || location.href === location.hostname + pathName + "/signUp.html") {
-            location.href = location.hostname + pathName + "/home.html";
+        if (location.href === location.origin + pathName + "/" || location.href === location.origin + pathName + "/signUp.html") {
+            location.href = location.origin + pathName + "/home.html";
         }
         getUserData();
     }
@@ -72,10 +72,10 @@ function signIn() {
                     setTimeout(function () {
                         successMsg.classList.add('d-none');
                         localStorage.setItem('userSession', JSON.stringify(allUsers[i]));
-                        if (location.hostname.length == 0) {
+                        if (location.origin.length == 0) {
                             location.href = hrefFilePath + "/home.html";
                         } else {
-                            location.href = location.hostname + pathName + "/home.html";
+                            location.href = location.origin + pathName + "/home.html";
                         }
                     }, 2000);
                     break;
@@ -120,10 +120,10 @@ function signUp() {
         successMsg.classList.remove('d-none');
         setTimeout(function () {
             successMsg.classList.add('d-none');
-            if (location.hostname.length == 0) {
+            if (location.origin.length == 0) {
                 location.href = hrefFilePath + "/index.html";
             } else {
-                location.href = location.hostname + pathName + "/";
+                location.href = location.origin + pathName + "/";
             }
         }, 2000);
     }
@@ -131,10 +131,10 @@ function signUp() {
 
 function logOut() {
     localStorage.removeItem('userSession');
-    if (location.hostname.length == 0) {
+    if (location.origin.length == 0) {
         location.href = hrefFilePath + "/index.html";
     } else {
-        location.href = location.hostname + pathName + "/";
+        location.href = location.origin + pathName + "/";
     }
 }
 
