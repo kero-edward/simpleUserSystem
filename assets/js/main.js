@@ -11,7 +11,7 @@ var allUsers = [];
 var userData = {};
 var pathName = '/simpleUserSystem'
 
-if (location.origin.length == 0) {
+if (location.hostname.length == 0) {
     if (location.href === hrefFilePath + "/home.html" && localStorage.getItem('userSession') === null) {
         location.href = hrefFilePath + "/index.html";
     } else if (localStorage.getItem('userSession')) {
@@ -72,7 +72,7 @@ function signIn() {
                     setTimeout(function () {
                         successMsg.classList.add('d-none');
                         localStorage.setItem('userSession', JSON.stringify(allUsers[i]));
-                        if (location.origin.length == 0) {
+                        if (location.hostname.length == 0) {
                             location.href = hrefFilePath + "/home.html";
                         } else {
                             location.href = location.origin + pathName + "/home.html";
@@ -120,7 +120,7 @@ function signUp() {
         successMsg.classList.remove('d-none');
         setTimeout(function () {
             successMsg.classList.add('d-none');
-            if (location.origin.length == 0) {
+            if (location.hostname.length == 0) {
                 location.href = hrefFilePath + "/index.html";
             } else {
                 location.href = location.origin + pathName + "/";
@@ -131,7 +131,7 @@ function signUp() {
 
 function logOut() {
     localStorage.removeItem('userSession');
-    if (location.origin.length == 0) {
+    if (location.hostname.length == 0) {
         location.href = hrefFilePath + "/index.html";
     } else {
         location.href = location.origin + pathName + "/";
