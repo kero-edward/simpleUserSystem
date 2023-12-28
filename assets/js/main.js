@@ -22,10 +22,10 @@ if (location.hostname.length == 0) {
     }
 } else {
     if (location.href === location.hostname + pathName + "/home.html" && localStorage.getItem('userSession') === null) {
-        location.href = pathName + "/";
+        location.href = location.hostname + pathName + "/";
     } else if (localStorage.getItem('userSession')) {
-        if (location.href === pathName + "/" || location.href === pathName + "/signUp.html") {
-            location.href = pathName + "/home.html";
+        if (location.href === location.hostname + pathName + "/" || location.href === location.hostname + pathName + "/signUp.html") {
+            location.href = location.hostname + pathName + "/home.html";
         }
         getUserData();
     }
@@ -75,7 +75,7 @@ function signIn() {
                         if (location.hostname.length == 0) {
                             location.href = hrefFilePath + "/home.html";
                         } else {
-                            location.href = pathName + "/home.html";
+                            location.href = location.hostname + pathName + "/home.html";
                         }
                     }, 2000);
                     break;
@@ -123,7 +123,7 @@ function signUp() {
             if (location.hostname.length == 0) {
                 location.href = hrefFilePath + "/index.html";
             } else {
-                location.href = pathName + "/";
+                location.href = location.hostname + pathName + "/";
             }
         }, 2000);
     }
@@ -134,7 +134,7 @@ function logOut() {
     if (location.hostname.length == 0) {
         location.href = hrefFilePath + "/index.html";
     } else {
-        location.href = pathName + "/";
+        location.href = location.hostname + pathName + "/";
     }
 }
 
