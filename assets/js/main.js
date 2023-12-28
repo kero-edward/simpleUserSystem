@@ -43,9 +43,14 @@ function getUserData() {
 function signIn() {
     if (emailValidation().test(emailInput.value) === false) {
         emailError.classList.remove('d-none');
-        emailError.innerHTML = 'Email may not found, or not valid, please sign up firstly or follow the following example: "Test.-_test@exaple.com" with minimum 3 and maximum 15';
+        emailError.innerHTML = 'Email not found, or not valid, please sign up firstly or follow the following example: "Test.-_test@exaple.com" with minimum 3 and maximum 15';
     } else {
-        emailError.classList.add('d-none');
+        if (!localStorage.getItem('users')) {
+            emailError.classList.remove('d-none');
+            emailError.innerHTML = 'Email not found or incorrect';
+        } else {
+            emailError.classList.add('d-none');
+        }
     }
 
     if (passwordValidation().test(passwordInput.value) === false) {
@@ -55,7 +60,7 @@ function signIn() {
         passwordError.classList.add('d-none');
     }
 
-    if (emailValidation().test(emailInput.value) && passwordValidation().test(passwordInput.value)) {
+    if (emailValidation().test(emailInput.value) && passwordValidation().test(passwordInput.value && localStorage.getItem('users'))) {
         for (var i = 0; i < allUsers.length; i++) {
             if (allUsers[i].email !== emailInput.value) {
                 emailError.classList.remove('d-none');
