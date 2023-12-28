@@ -9,7 +9,7 @@ const passwordError = document.getElementById('passwordError');
 const successMsg = document.getElementById('successMsg');
 var allUsers = [];
 var userData = {};
-var pathName = '/simpleUserSystem/'
+var pathName = '/simpleUserSystem'
 
 if (location.hostname.length == 0) {
     if (location.href === hrefFilePath + "/home.html" && localStorage.getItem('userSession') === null) {
@@ -21,7 +21,7 @@ if (location.hostname.length == 0) {
         getUserData();
     }
 } else {
-    if (location.href === location.hostname + pathName + "home.html" && localStorage.getItem('userSession') === null) {
+    if (location.href === location.hostname + pathName + "/home.html" && localStorage.getItem('userSession') === null) {
         location.href = pathName + "/";
     } else if (localStorage.getItem('userSession')) {
         if (location.href === pathName + "/" || location.href === pathName + "/signUp.html") {
